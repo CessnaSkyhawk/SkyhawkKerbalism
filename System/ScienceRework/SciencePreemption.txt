@@ -72,7 +72,7 @@
 //Meteorological Experiments
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_weather]]]:FIRST
 {
-	%SK_MeteorologicalExperiments = True
+	%SK_MeteorologicalExperiments = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_weather]]]:FIRST
 {
@@ -82,19 +82,19 @@
 //Radiation Experiments
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_GeigerCounter]]]:FIRST
 {
-	%SK_RadiationExperiments = True
+	%SK_RadiationExperiments = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_GeigerCounter]]]:FIRST
 {
-	%SK_RadiationExperiments = True
+	%SK_RadiationExperiments = True	
 }
-@PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_logIonTrap]]]:FIRST
+@PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[logIonTrap]]]:FIRST
 {
 	%SK_RadiationExperiments = True
 }
-@PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_logIonTrap]]]:FIRST
+@PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[logIonTrap]]]:FIRST
 {
-	%SK_RadiationExperiments = True
+	%SK_RadiationExperiments = True	
 }
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_trappedRadiation]]]:FIRST
 {
@@ -102,7 +102,7 @@
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_trappedRadiation]]]:FIRST
 {
-	%SK_RadiationExperiments = True
+	%SK_RadiationExperiments = True	
 }
 
 //SIGINT Experiments
@@ -112,13 +112,13 @@
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_SIGINT]]]:FIRST
 {
-	%SK_SIGINT = True
+	%SK_SIGINT = True	
 }
 
 //Solar Observation Experiments
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_oso]]]:FIRST
 {
-	%SK_SolarObservationExperiments = True
+	%SK_SolarObservationExperiments = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_oso]]]:FIRST
 {
@@ -128,28 +128,28 @@
 //Solar Wind Experiments
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_solarWind]]]:FIRST
 {
-	%SK_SolarWindExperiments = True
+	%SK_SolarWindExperiments = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_solarWind]]]:FIRST
 {
-	%SK_SolarWindExperiments = True
+	%SK_SolarWindExperiments = True	
 }
 
 //Surveillance Experiments
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_mapping]]]:FIRST
 {
 	%SK_SurveillanceExperiments = True
-	%SK_SurveillanceFilmCapacity = 1
+	%SK_SurveillanceFilmCapacity = 1	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_mapping]]]:FIRST
 {
 	%SK_SurveillanceExperiments = True
-	%SK_SurveillanceFilmCapacity = 1
+	%SK_SurveillanceFilmCapacity = 1	
 }
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_surveillance]]]:FIRST
 {
 	%SK_SurveillanceExperiments = True
-	%SK_SurveillanceFilmCapacity = 1
+	%SK_SurveillanceFilmCapacity = 1		
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_surveillance]]]:FIRST
 {
@@ -161,17 +161,17 @@
 //Temperature Scan
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[temperatureScan]]]:FIRST
 {
-	%SK_Thermometer = True
+	%SK_Thermometer = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[temperatureScan]]]:FIRST
 {
-	%SK_Thermometer = True
+	%SK_Thermometer = True	
 }
 
 //Barometer Scan
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[barometerScan]]]:FIRST
 {
-	%SK_Barometer = True
+	%SK_Barometer = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[barometerScan]]]:FIRST
 {
@@ -181,37 +181,37 @@
 //Ionization and Electrostatic Analysis
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_ionElec]]]:FIRST
 {
-	%SK_IonElec = True
+	%SK_IonElec = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_ionElec]]]:FIRST
 {
-	%SK_IonElec = True
+	%SK_IonElec = True		
 }
 
 //Cosmic Ray Detection
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_cosmicRay]]]:FIRST
 {
-	%SK_CosmicRay = True
+	%SK_CosmicRay = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_cosmicRay]]]:FIRST
 {
-	%SK_CosmicRay = True
+	%SK_CosmicRay = True		
 }
 
 //Gamma Ray Spectrometry
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_gammaRay]]]:FIRST
 {
-	%SK_GammaRay = True
+	%SK_GammaRay = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_gammaRay]]]:FIRST
 {
-	%SK_GammaRay = True
+	%SK_GammaRay = True	
 }
 
 //IR Radiometer
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_IRradiometer]]]:FIRST
 {
-	%SK_IRRadiometer = True
+	%SK_IRRadiometer = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_IRradiometer]]]:FIRST
 {
@@ -221,7 +221,7 @@
 //Photometer
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_Photometer]]]:FIRST
 {
-	%SK_Photometer = True
+	%SK_Photometer = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_Photometer]]]:FIRST
 {
@@ -237,7 +237,7 @@
 //Mass Spec
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_massSpec]]]:FIRST
 {
-	%SK_MassSpec = True
+	%SK_MassSpec = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_massSpec]]]:FIRST
 {
@@ -247,17 +247,17 @@
 //Microwave Spec
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_microwaveSpec]]]:FIRST
 {
-	%SK_MicrowaveSpec = True
+	%SK_MicrowaveSpec = True	
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_microwaveSpec]]]:FIRST
 {
-	%SK_MicrowaveSpec = True
+	%SK_MicrowaveSpec = True	
 }
 
 //RPWS 
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[bd_rpws]]]:FIRST
 {
-	%SK_RPWS = True
+	%SK_RPWS = True		
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[bd_rpws]]]:FIRST
 {
@@ -268,24 +268,20 @@
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[mysteryGoo]]]:FIRST
 {
 	%SK_ExplorationExperiments = True
-	!MODULE:HAS[#experimentID[mysteryGoo]]	{}
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[mysteryGoo]]]:FIRST
 {
 	%SK_ExplorationExperiments = True
-	!MODULE:HAS[#experimentID[mysteryGoo]]	{}
 }
 
 //Science Jr
 @PART[*]:HAS[@MODULE[DMModuleScienceAnimateGeneric]:HAS[#experimentID[mobileMaterialsLab]]]:FIRST
 {
 	%SK_ScienceJr = True
-	!MODULE:HAS[#experimentID[mobileMaterialsLab]]	{}
 }
 @PART[*]:HAS[@MODULE[ModuleScienceExperiment]:HAS[#experimentID[mobileMaterialsLab]]]:FIRST
 {
 	%SK_ScienceJr = True
-	!MODULE:HAS[#experimentID[mobileMaterialsLab]]	{}
 }
 
 //Telescopes
