@@ -1996,69 +1996,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // ISRU Processors
 // ============================================================================
-+PART[kerbalism-chemicalplant]:FIRST 
-{
-	@name = kerbalism-MOXIE
-	@title = "Perseverance" Experimental ISRU System
-	@manufacturer = Skyhawk Aerospace Corporation
-	@description = A small experimental ISRU system which can convert CO2 into Oxygen, designed to be slapped onto your next Duna rover
-	@mass = 0.04
-}
-+PART[kerbalism-chemicalplant]:FIRST 
-{
-	@name = kerbalism-MOXIEProduction
-	@title = "Ingenuity" ISRU System
-	@manufacturer = Skyhawk Aerospace Corporation
-	@description = A production version of the "Perseverance" ISRU system, this is a fully-functional, albiet quite slow, ISRU system.
-	%SK_ISRU = True
-	%ISRUCapacity = 0.0625	
-	%ISRUSlots = 1
-	@mass = 0.15
-	@rescaleFactor = 0.525
-}
-@PART[kerbalism-chemicalplant]:FIRST 
-{
-	@rescaleFactor = 0.7
-	%SK_ISRU = True
-	%ISRUCapacity = 0.125
-	%ISRUSlots = 1
-	@mass = 0.75
-}
-@PART[MiniISRU]:FIRST
-{
-	%SK_ISRU = True
-	%ISRUCapacity = 0.25
-	%ISRUSlots = 1
-}
-+PART[MiniISRU]:FIRST
-{
-	@name = kerbalism-MedISRU
-	@title = Medium ISRU System
-	@manufacturer = Skyhawk Aerospace Corporation
-	%SK_ISRU = True
-	@rescaleFactor = 1.5
-	%ISRUCapacity = 0.5
-	%ISRUSlots = 1
-	@mass = 2.25
-}
-@PART[ISRU]:FIRST
-{
-	%SK_ISRU = True
-	%ISRUCapacity = 1
-	%ISRUSlots = 1
-}
-+PART[ISRU]:FIRST
-{
-	@name = kerbalism-HugeISRU
-	@title = Beeg ISRU System
-	@manufacturer = Skyhawk Aerospace Corporation
-	@rescaleFactor = 1.25
-	%SK_ISRU = True
-	%ISRUCapacity = 2
-	%ISRUSlots = 1
-	@mass = 7.75
-}
-
 @PART[*]:HAS[#SK_ISRU[True]]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
 {
 
@@ -2821,6 +2758,8 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Configure
 		title = Flash Freezer
 		slots = 1
+		reconfigure = Engineer@2
+		
 		UPGRADES
 		{
 			UPGRADE
@@ -2997,6 +2936,8 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Configure
 		title = Quick Heater
 		slots = 1
+		reconfigure = Engineer@2
+		
 		UPGRADES
 		{
 			UPGRADE
@@ -4516,7 +4457,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Harvester
 		title = Rock Exo Scoop
 		type = 3
-		resource = Oxygen
+		resource = Rock
 		min_abundance = 0.01
 		rate = 0.001
 		ec_rate = 9.0
