@@ -534,7 +534,7 @@ Profile
 		input = Oxygen@3.853
 		output = Water@0.009641
 		output = ElectricCharge@18.0
-		dump_valve = true
+		dump_valve = Water
 	}
 
 	Process
@@ -556,7 +556,7 @@ Profile
 		input = Oxidizer@0.02475
 		output = Water@0.13922
 		output = ElectricCharge@18.0
-		dump_valve = true
+		dump_valve = Water
 	}
 	
 	Process
@@ -600,6 +600,7 @@ Profile
 		output = Nitrogen@9.069086331
 		output = Water@0.0145923768
 		output = ElectricCharge@18.0
+		dump_valve = Water, Nitrogen, Water&Nitrogen
 	}
 
 	//Emergency APU which can be added to capsules only.
@@ -1194,7 +1195,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // Command Module Life-Support 
 // ============================================================================
 
-@PART[*]:HAS[#CrewCapacity[>0],!MODULE[KerbalSeat]]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
+@PART[*]:HAS[#CrewCapacity[>0],!MODULE[KerbalSeat],~SK_LifeSupportSystem[True]]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
 {
 	MODULE
 	{
@@ -1488,11 +1489,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // External Life Support Modules
 // ============================================================================
-@PART[kerbalism-lifesupportmodule]:FIRST
-{
-	%SK_LifeSupportSystem = True
-	%LSCapacity = 3
-}
 //External Life Support Systems
 @PART[*]:HAS[#SK_LifeSupportSystem[True]]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
 {
@@ -1785,20 +1781,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Fuel Cells
 // ============================================================================
-
-//Stock Fuel Cells
-@PART[FuelCell]:FIRST
-{
-	%SK_FuelCell = True
-	%FuelCellCapacity = 0.1
-}
-
-@PART[FuelCellArray]:FIRST
-{
-	%SK_FuelCell = True
-	%FuelCellCapacity = 1
-}
-
 @PART[*]:HAS[#SK_FuelCell[True]]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
 {
 
@@ -1810,6 +1792,15 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = ProcessController
 		resource = _H2O2FuelCell
 		title = H2O2 Fuel Cell
+		capacity = #$/FuelCellCapacity$
+		running = true
+	}
+
+	MODULE
+	{
+		name = ProcessController
+		resource = _HydrazineFuelCell
+		title = Hydrazine Fuel Cell
 		capacity = #$/FuelCellCapacity$
 		running = true
 	}
@@ -1889,6 +1880,21 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
      			id_value = _H2O2FuelCell
      		}
      	}
+		
+     	SETUP 
+     	{
+     		name = Hydrazine Fuel Cell
+     		desc = A fuel cell which consumes <b>Hydrazine</b> produce <b>ElectricCharge</b>.
+     		mass = 0
+     		cost = 0
+     
+     		MODULE
+     		{
+     			type = ProcessController
+     			id_field = resource
+     			id_value = _HydrazineFuelCell
+     		}
+     	}			
 		
      	SETUP 
      	{
@@ -2693,11 +2699,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Freezers
 // ============================================================================
-@PART[kerbalism-freezer]:FIRST
-{
-	%SK_Freezer = True
-	%FreezerCapacity = 1
-}
 @PART[*]:HAS[#SK_Freezer[True]]
 {
 	!MODULE[ModuleOverheatDisplay] {}
@@ -2870,11 +2871,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Heaters
 // ============================================================================
-@PART[kerbalism-heater]:FIRST
-{
-	%SK_Heater = True
-	%HeaterCapacity = 1
-}
 @PART[*]:HAS[#SK_Heater[True]]
 {
 	!MODULE[ModuleOverheatDisplay] {}
@@ -3048,16 +3044,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Surface Harvesters
 // ============================================================================
-@PART[MiniDrill]:FIRST
-{
-	%SK_Drill = True
-	%DrillCapacity = 1
-}
-@PART[RadialDrill]:FIRST
-{
-	%SK_Drill = True
-	%DrillCapacity = 5
-}
 @PART[*]:HAS[#SK_Drill[True]]
 {
 	!MODULE[ModuleResourceHarvester] {}
@@ -3664,48 +3650,9 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		extra_mass = 0.2
 	}
 }
-
-@PART[MiniDrill]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
-{
-	@MODULE[Harvester],*
-	{
-		drill = ImpactTransform
-		length = 1.08
-	}
-}
-
-@PART[RadialDrill]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
-{
-	@MODULE[Harvester],*
-	{
-		drill = ImpactTransform
-		length = 5.42
-	}
-}
 // ============================================================================
 // Atmospheric Harvesters
 // ============================================================================
-@PART[sensorAtmosphere]:FIRST
-{
-	@rescaleFactor = 0.4
-}
-+PART[sensorAtmosphere]:FIRST
-{
-	@name = kerbalism-airHarvester
-	@title = Air Harvester
-	@rescaleFactor = 0.8
-	%SK_AirHarvester = True
-	%AirHarvesterCapacity = 1
-}
-+PART[sensorAtmosphere]:FIRST
-{
-	@name = kerbalism-airHarvesterLarge
-	@title = Large Air Harvester
-	@rescaleFactor = 1.6
-	%SK_AirHarvester = True
-	%AirHarvesterCapacity = 5
-}
-
 @PART[*]:HAS[#SK_AirHarvester[True]]
 {
 	
@@ -4042,16 +3989,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Oceanic Harvesters
 // ============================================================================
-@PART[kerbalism-minipump]:FIRST
-{
-	%SK_Pump = True
-	%PumpCapacity = 1
-}
-@PART[kerbalism-radialpump]:FIRST
-{
-	%SK_Pump = True
-	%PumpCapacity = 5
-}
 @PART[*]:HAS[#SK_Pump[True]]
 {
 	!MODULE[ModuleResourceHarvester] {}
@@ -4312,34 +4249,9 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		extra_mass = 0.2
 	}
 }
-@PART[kerbalism-minipump]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
-{
-	@MODULE[Harvester],*
-	{
-		drill = ImpactTransform
-		length = 1.08
-	}
-}
-
-@PART[kerbalism-radialpump]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
-{
-	@MODULE[Harvester],*
-	{
-		drill = ImpactTransform
-		length = 5.42
-		@rate *= 5
-		@ec_rate *= 5
-	}
-}
 // ============================================================================
 // Exosphere Harvesters
 // ============================================================================
-@PART[kerbalism-exoscoop]:FIRST
-{
-	%SK_ExoScoop = True
-	%ExoScoopCapacity = 1
-}
-
 @PART[*]:HAS[#SK_ExoScoop[True]]
 {
 	!MODULE[ModuleResourceHarvester],* {}
@@ -4686,14 +4598,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Greenhouses
 // ============================================================================
-@PART[kerbalism-greenhouse]:FIRST
-{
-	%SK_Greenhouse = True
-	%GreenhouseCapacity = 0.5 //1 capacity means supports the food needs of one kerbal indefinetly, and the O2 needs of two 
-	%lamps = Cylinder001 
-	%shutters = door
-	%plants =	
-}
 @PART[*]:HAS[#SK_Greenhouse[True]]
 {
 	MODULE
@@ -4825,11 +4729,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Launch clamps/Generators
 // ============================================================================
-@PART[launchClamp1]
-{
-	%SK_Generator = True
-	%GeneratorCapacity = 1.0
-}
 @PART[*]:HAS[#SK_Generator[True]]
 {
 	MODULE
@@ -4848,11 +4747,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // RTG
 // ============================================================================
-@PART[rtg]
-{
-	%SK_RTG = True
-	%RTGCapacity = 1
-}
 @PART[rtg]:HAS[#SK_RTG[True]]
 {
 	MODULE
@@ -4872,11 +4766,6 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Habitats
 // ============================================================================
-
-@PART[kerbalism-gravityring]:NEEDS[ProfileSkyhawk]:FOR[KerbalismSkyhawk]
-{
-	%CrewCapacity = 6
-}
 
 // ============================================================================
 // Pseudo-resources used by processes
