@@ -1134,6 +1134,14 @@ Profile
 		cures = stress@0.00000000463
 	}
 
+	Process
+	{
+		name = stress reduction therapy
+		title = Stress Reduction Therapy
+		modifier = _SickbayTherapy
+		cures = stress@0.00000000926
+	}
+
   Process
   {
 		name = zero gravity shower  // showers are complex
@@ -5243,6 +5251,13 @@ RESOURCE_DEFINITION
 RESOURCE_DEFINITION
 {
   name = _SickbayTV
+  density = 0.0
+  isVisible = false
+}
+
+RESOURCE_DEFINITION
+{
+  name = _SickbayTherapy
   density = 0.0
   isVisible = false
 }
