@@ -229,11 +229,27 @@ Profile
        
 		Supply
 		{
-       	    resource = Spodumene
+       	    resource = Spodsumene
        	    low_message = Spodumene is almost depleted on $VESSEL@<i>Lithium sifting will soon be unavailable</i>
        	    empty_message = There is no more Spodumene on $VESSEL@<i>Lithium sifting is no longer available</i>
        	    refill_message = $VESSEL Spodumene storage refilled@<i>Lithium sifting is available</i>
-		}  
+		}
+		
+		Supply
+		{
+			resource = Uraninite
+			low_message = Uraninite is almost depleted on $VESSEL@<i>Enriched Uranium production will soon be unavailable</i>
+			empty_message = There is no more Uraninite on $VESSEL@<i>Enriched Uranium production is no longer available</i>
+			refill_message = $VESSEL Uraninite storage refilled@<i>Enriched Uranium production is available</i>
+		}
+
+		Supply
+		{
+			resource = EnrichedUranium
+			low_message = Enriched Uranium is almost depleted on $VESSEL@<i>Nuclear Reactors will shut down soon</i>
+			empty_message = There is no more Enriched Uranium on $VESSEL@<i>Nuclear Reactors have shut down</i>
+			refill_message = $VESSEL Enriched Uranium storage refilled@<i>Nuclear Reactors back online</i>
+		}
        
 	/////////
 	//Rules//
@@ -1115,6 +1131,39 @@ Profile
 		input = ElectricCharge@3.0
 		input = Oxidizer@0.032
 		output = Oxygen@115.2
+	}
+	
+	////////////
+	//Reactors//
+	////////////
+	Process
+	{
+		name = uraninite centrifuge
+		modifier = _Centrifuge
+		input = ElectricCharge@200
+		input = Uraninite@0.005	
+		output = EnrichedUranium@0.0005
+	}
+
+	Process
+	{
+		name = fuel reprocessor
+		modifier = _Reprocessor
+		input = DepletedFuel@0.05
+		output = ElectricCharge@200
+		output = EnrichedUranium@0.025
+		dump_valve = EnrichedUranium
+	}
+
+	Process
+	{
+		name = fission reactor
+		modifier = _Nukereactor
+		input = EnrichedUranium@0.00000000175
+		output = DepletedFuel@0.00000000175
+		output = XenonGas@0.00000000007
+		output = ElectricCharge@1.0
+		dump_valve = XenonGas&DepletedFuel,XenonGas,DepletedFuel
 	}
 	
 	////////////////////////////
@@ -4714,6 +4763,48 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 }
 
 // ============================================================================
+// Nuclear Power
+// ============================================================================
+@PART[*]:HAS[#SK_NuclearReactor[True]]
+{
+	MODULE
+	{
+		name = ProcessController
+		resource = _Nukereactor
+		title = Nuclear Reactor
+		capacity = #$/NuclearReactorCapacity$
+	}
+
+	!MODULE[FissionGenerator],* {}
+	!MODULE[FissionReactor],* {}
+	!MODULE[ModuleCoreHeatNoCatchup],* {}
+	!MODULE[ModuleUpdateOverride],* {}
+}
+
+@PART[*]:HAS[#SK_NuclearCentrifuge[True]]
+{
+	MODULE
+	{
+		name = ProcessController
+		resource = _Centrifuge
+		title = Nuclear Centrifuge
+		capacity = #$/NuclearCentrifugeCapacity$
+	}
+	
+	MODULE
+	{
+		name = ProcessController
+		resource = _Reprocessor
+		title = Nuclear Reprocessor
+		capacity = #$/NuclearCentrifugeCapacity$
+	}
+
+	!MODULE[ModuleResourceConverter],* {}
+	!MODULE[ModuleOverheatDisplay],* {}
+	!MODULE[ModuleCoreHeat],* {}
+}
+
+// ============================================================================
 // Habitats
 // ============================================================================
 
@@ -5239,6 +5330,27 @@ RESOURCE_DEFINITION
   name = _WasteCompressor
   density = 0.0
   isVisible = false
+}
+
+RESOURCE_DEFINITION
+{
+	name = _Centrifuge
+	density = 0.0
+	isVisible = false
+}
+
+RESOURCE_DEFINITION
+{
+	name = _Reprocessor
+	density = 0.0
+	isVisible = false
+}
+
+RESOURCE_DEFINITION
+{
+	name = _Nukereactor
+	density = 0.0
+	isVisible = false
 }
 
 // sickbay
