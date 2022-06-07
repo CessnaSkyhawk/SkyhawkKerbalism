@@ -4765,7 +4765,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 // ============================================================================
 // Nuclear Power
 // ============================================================================
-@PART[*]:HAS[#SK_NuclearReactor[True]]
+@PART[*]:HAS[#SK_NuclearReactor[True]]:NEEDS[!zKerbalismSystemHeat]
 {
 	MODULE
 	{
@@ -4781,7 +4781,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 	!MODULE[ModuleUpdateOverride],* {}
 }
 
-@PART[*]:HAS[#SK_NuclearCentrifuge[True]]
+@PART[*]:HAS[#SK_NuclearCentrifuge[True]]:NEEDS[!zKerbalismSystemHeat]
 {
 	MODULE
 	{
