@@ -4675,11 +4675,14 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 	}
 
 	//Check values to ensure they make sense - should be enough for about 1 week of farming, rounded to nice numbers - anything more needs extra stuff
+	//Check values to ensure they make sense - should be enough for about 1 week of farming, rounded to nice numbers - anything more needs extra stuff
 	RESOURCE
 	{
 		name = Ammonia
 		amount = 29             //greenhouses combined
 		maxAmount = 29
+		amount *= #$/GreenhouseCapacity$
+		maxAmount *= #$/GreenhouseCapacity$
 	}	
 
 	// CarbonDioxide is provided because humans don't provide enough CO2 for their required food production
@@ -4691,6 +4694,8 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = CarbonDioxide
 		amount = 125            
 		maxAmount = 125
+		amount *= #$/GreenhouseCapacity$
+		maxAmount *= #$/GreenhouseCapacity$
 	}
 
 	// To support the pressure control
@@ -4699,6 +4704,8 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Nitrogen
 		amount = 10000           
 		maxAmount = 10000
+		amount *= #$/GreenhouseCapacity$
+		maxAmount *= #$/GreenhouseCapacity$
 	}
 
 	RESOURCE
@@ -4706,6 +4713,8 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Water
 		amount = 1.5            
 		maxAmount = 1.5
+		amount *= #$/GreenhouseCapacity$
+		maxAmount *= #$/GreenhouseCapacity$
 	}
 	
 	RESOURCE
@@ -4713,7 +4722,9 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Food
 		amount = 7             
 		maxAmount = 7
-	}	
+		amount *= #$/GreenhouseCapacity$
+		maxAmount *= #$/GreenhouseCapacity$
+	}	/
 	
   MODULE
   {
