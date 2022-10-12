@@ -1,6 +1,6 @@
 {
   "NAME": "SkyhawkKerbalism",
-  "URL": "https://github.com/CessnaSkyhawk/SkyhawkKerbalism",
+  "URL": "https://github.com/CessnaSkyhawk/SkyhawkKerbalism/raw/main/SkyhawkKerbalism.version",
   "DOWNLOAD": "https://github.com/CessnaSkyhawk/SkyhawkKerbalism/releases",
   "CHANGE_LOG_URL": "https://github.com/CessnaSkyhawk/SkyhawkKerbalism",
   "VERSION": {"MAJOR": 1, "MINOR": 0, "PATCH": 2, "BUILD": 0},
