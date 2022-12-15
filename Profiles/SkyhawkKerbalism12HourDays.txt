@@ -1341,7 +1341,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Configure
 		title = Life Support
 		slots = 2
-
+		reconfigure = Engineer@4
 		//UPGRADES
 		//{
 		//	UPGRADE
@@ -1618,7 +1618,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Configure
 		title = ECLSS
 		slots = 2
-
+		reconfigure = Engineer@4
 		//UPGRADES
 		//{
 		//	UPGRADE
@@ -3297,6 +3297,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Configure
 		title = Drill
 		slots = 1
+		reconfigure = Engineer@2
 		SETUP
 		{
 			name = Ore Extraction
@@ -3794,7 +3795,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Configure
 		title = Filter
 		slots = 1
-		
+		reconfigure = Engineer@2
 		SETUP
 		{
 			name = Ammonia Extraction
@@ -4098,7 +4099,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		name = Configure
 		title = Pump
 		slots = 1
-
+		reconfigure = Engineer@2
 		SETUP
 		{
 			name = Water Extraction
@@ -4394,7 +4395,7 @@ PARTUPGRADE:NEEDS[ProfileSkyhawk]
 		title = Exosphere Scoop
 		slots = 1
 		@slots:NEEDS[Blueshift|FlyingSaucers] += 1
-		
+		reconfigure = Engineer@5
 		SETUP
 		{
 			name = None
